@@ -1,12 +1,12 @@
 extends Node2D
+
 var arrowScene = preload("res://Escenas/arrow.tscn")
-@onready var char = $Node/Player
-@onready var label = $Node2/Label
+@onready var character = get_node("character/Player")
+@onready var label = $label/Label
+
 var difficulty = 5.0
 var timerFall
 var TimerDiff
-
-
 
 func _ready() -> void:
 	timerFall = Timer.new()
@@ -31,18 +31,22 @@ func _on_difficulti_pass():
 func _on_Timer_timeout():
 	generar_flecha()
 
-func _process(delta: float) -> void:
-	if !is_instance_valid(char) && Input.is_action_just_pressed("R"):
+func _process(delta):
+	if !is_instance_valid(character) && Input.is_action_just_pressed("R"):
+		print(get_tree())
 		get_tree().reload_current_scene()
+		
 
 func generar_flecha():
-	if !is_instance_valid(char):
+	if !is_instance_valid(character):
 		label.text = "Perdiste"
-		
 		return
 	
-	var objectSize = char.collition.shape.size.x
+	var objectSize = character.collition.shape.size.x
 	var flecha = arrowScene.instantiate()
-	var rand = randi_range(objectSize,get_viewport_rect().size.x-objectSize)
-	flecha.position = Vector2(rand,char.collition.shape.size.y-100)
-	$Node.add_child(flecha)
+	#character.Pi = 200
+	print(objectSize-10,objectSize)
+	var rand = randi_range(objectSize/2,get_viewport_rect().size.x-objectSize/2)
+	flecha.position = Vector2(rand,character.collition.shape.size.y - 100)
+	$character.add_child(flecha)
+	

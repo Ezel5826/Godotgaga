@@ -47,16 +47,18 @@ position = Vector2(575.99994, 613.75)
 scale = Vector2(3.8400002, 2.083333)
 texture = ExtResource("2_bqhdr")
 
-[node name="Node" type="Node" parent="."]
+[node name="character" type="Node" parent="."]
 
-[node name="Player" parent="Node" instance=ExtResource("1_wxucn")]
+[node name="Player" parent="character" instance=ExtResource("1_wxucn")]
 position = Vector2(590, 236)
 
-[node name="Node2" type="Node" parent="."]
+[node name="label" type="Node" parent="."]
 
-[node name="Label" type="Label" parent="Node2"]
+[node name="Label" type="Label" parent="label"]
 offset_left = 331.0
 offset_top = 248.0
 offset_right = 729.0
 offset_bottom = 385.0
 label_settings = SubResource("LabelSettings_5sfon")
+
+[node name="powerUps" type="Node" parent="."]

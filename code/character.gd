@@ -2,12 +2,15 @@ extends CharacterBody2D
 @onready var collition = $CollisionShape2D 
 
 const speed:float = 500.0
+const speedR = 400
+@export var Pi = PI
 const jump_velocity:float = -500.0
 
 
 var gravity = 980
 
 func _physics_process(delta) -> void:
+
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
@@ -19,12 +22,5 @@ func _physics_process(delta) -> void:
 		velocity.x = dir * speed
 	else:
 		velocity.x = move_toward(velocity.x,0,speed)
-	#var collide = move_and_collide(velocity*delta)
-	#print(collide)
-	#if collide:
-	#	var collider = collide.get_collider()
-	#	print(collider.name)
-	#	if collider.name == "RigidBody2D":
-	#		queue_free()
 	
 	move_and_slide()
