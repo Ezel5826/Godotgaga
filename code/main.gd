@@ -1,6 +1,7 @@
 extends Node2D
 
 var arrowScene = preload("res://Escenas/arrow.tscn")
+var camerasScene = preload("res://Escenas/Cameras.tscn")
 @onready var character = get_node("character/Player")
 @onready var label = $label/Label
 
@@ -22,14 +23,26 @@ func _ready() -> void:
 	TimerDiff.autostart = true
 	add_child(TimerDiff)
 	TimerDiff.connect("timeout",Callable(self, "_on_difficulti_pass"))
+	print(get_node("Node/Button").is_class("Button"))
+	get_node("Node/Button").pressed.connect(chargeCams.bind())
+	
+func _on_Timer_timeout():
+	generar_flecha()
 
 func _on_difficulti_pass():
 	if difficulty != 1:
 		difficulty -= 1
 		timerFall.wait_time = 0.2 * difficulty
 
-func _on_Timer_timeout():
-	generar_flecha()
+func chargeCams():
+	var pro = get_node("Node/Node2D")
+
+	if pro == null :
+		var gaga= camerasScene.instantiate()
+		get_node("Node").add_child(gaga)
+	else:
+		pro.queue_free()
+		
 
 func _process(delta):
 	if !is_instance_valid(character) && Input.is_action_just_pressed("R"):

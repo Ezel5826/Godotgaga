@@ -6,4 +6,3 @@ func _on_button_pressed() -> void:
 		print(world.is_node_ready())
 		get_node("Node2").add_child(world)
 		get_node("Node").queue_free()
-		print(get_tree())
