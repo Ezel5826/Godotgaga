@@ -10,7 +10,7 @@ const Images = {
 func _ready() -> void:
 	for buttn in get_node("CanvasLayer/BttnsContainer").get_children():
 		buttn.pressed.connect(button_just_presed.bind(buttn.name))
-		
+				
 func button_just_presed(img):
 	if img in Images and cameras.texture!=Images[img]:
 		cameras.texture = Images[img]

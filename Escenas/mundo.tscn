@@ -19,31 +19,31 @@ script = ExtResource("1_bqhdr")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(576, 614)
+position = Vector2(573.0333, 682.82904)
 shape = SubResource("RectangleShape2D_xwo6f")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1184, 289)
+position = Vector2(1181.0333, 357.82904)
 shape = SubResource("RectangleShape2D_5sfon")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-39, 290)
+position = Vector2(-41.966675, 358.82904)
 shape = SubResource("RectangleShape2D_5sfon")
 
 [node name="Sprite0002" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(-38.343483, 289.9842)
+position = Vector2(-41.310158, 358.81323)
 rotation = 1.5718673
 scale = Vector2(1.9519347, 2.4250855)
 texture = ExtResource("2_bqhdr")
 
 [node name="Sprite0005" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(1184.9999, 287.99997)
+position = Vector2(1182.0332, 356.829)
 rotation = 1.5718673
 scale = Vector2(1.9519347, 2.4250855)
 texture = ExtResource("2_bqhdr")
 
 [node name="Sprite0003" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(575.99994, 613.75)
+position = Vector2(573.03326, 682.57904)
 scale = Vector2(3.8400002, 2.083333)
 texture = ExtResource("2_bqhdr")
 
@@ -65,17 +65,3 @@ metadata/_edit_use_anchors_ = true
 [node name="powerUps" type="Node" parent="."]
 
 [node name="Node" type="Node" parent="."]
-
-[node name="Button" type="Button" parent="Node"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -257.0
-offset_top = -152.0
-offset_right = -126.0
-offset_bottom = -90.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "cameras"
