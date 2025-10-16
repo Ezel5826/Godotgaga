@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 const speed:float = 500.0
 const speedR = 400
-@export var Pi = PI
 const jump_velocity:float = -500.0
 
 

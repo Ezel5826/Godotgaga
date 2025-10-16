@@ -3,8 +3,9 @@ extends Node2D
 var arrowScene = preload("res://Escenas/arrow.tscn")
 var camerasScene = preload("res://Escenas/Cameras.tscn")
 var CmeraBttn = preload("res://Escenas/ControlsCameras.tscn")
+
 @onready var character = get_node("character/Player")
-@onready var label = $label/Label
+@onready var label =  get_node("label/Label")
 
 var difficulty = 5.0
 var timerFall
@@ -29,8 +30,7 @@ func _ready() -> void:
 
 	get_node("Node").add_child(hi) 
 
-	
-	
+
 func _on_Timer_timeout():
 	generar_flecha()
 
@@ -62,7 +62,6 @@ func generar_flecha():
 	
 	var objectSize = character.collition.shape.size.x
 	var flecha = arrowScene.instantiate()
-	#character.Pi = 200
 	print(objectSize-10,objectSize)
 	var rand = randi_range(objectSize/2,get_viewport_rect().size.x-objectSize/2)
 	flecha.position = Vector2(rand,character.collition.shape.size.y - 100)
