@@ -8,6 +8,6 @@ func _input(event: InputEvent) -> void:
 		print(event)
 		var gaga = event.keycode
 		if gaga == 43 && gaga != null && event.pressed==false:
-			emit_signal("add_money",20) 
+			emit_signal("add_money",800) 
 		elif gaga == 45 && gaga != null && event.pressed==false:
 			emit_signal("spend_money",40)

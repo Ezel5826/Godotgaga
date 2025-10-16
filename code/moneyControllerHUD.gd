@@ -1,7 +1,9 @@
 extends Control
 @onready var TextMoney = get_node("MoneyLabel")
 @onready var SignalCam = get_parent().get_parent().get_node("Cameras HUD/BttnsContainer/MainButton")
+
 var signalPush = 0
+
 func _ready() -> void:
 	SignalCam.pressed.connect(_money_displayed)
 	_update_label(0)
@@ -11,13 +13,13 @@ func _ready() -> void:
 	
 
 func _add_money(money):
-	_update_label(int(TextMoney.text) + money)
+	_animate_money_change(int(TextMoney.text) + money)
 	
 func _less_money(money):
 	if int(TextMoney.text) < money:
 		print("gaga")
 	else:
-		_update_label( int(TextMoney.text)-money)
+		_animate_money_change(int(TextMoney.text) - money)
 
 func _money_displayed():
 
@@ -30,4 +32,13 @@ func _money_displayed():
 	
 	
 func _update_label(money):
+	
 	TextMoney.text = "💰 " + str(money)
+
+func _animate_money_change(target_money):
+	var money = int(TextMoney.text)
+	var step = 1 if target_money > money else -1
+	while money != target_money:
+		money += step
+		TextMoney.text = "💰 " + str(money)
+		await get_tree().create_timer(0.00001).timeout

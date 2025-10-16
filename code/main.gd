@@ -2,7 +2,7 @@ extends Node2D
 
 var arrowScene = preload("res://Escenas/arrow.tscn")
 var camerasScene = preload("res://Escenas/Cameras.tscn")
-var CmeraBttn = preload("res://Escenas/ControlsCameras.tscn")
+
 
 @onready var character = get_node("character/Player")
 @onready var label =  get_node("label/Label")
@@ -26,7 +26,6 @@ func _ready() -> void:
 	add_child(TimerDiff)
 	TimerDiff.connect("timeout",Callable(self, "_on_difficulti_pass"))
 
-	var hi = CmeraBttn.instantiate()
 
 	get_node("Node").add_child(hi) 
 
